@@ -7,7 +7,7 @@ RUN go mod download
 RUN go build ./cmd/nuclei
 
 # Release
-FROM alpine:3.18.6
+FROM alpine:3.21.0
 RUN apk upgrade --no-cache \
     && apk add --no-cache bind-tools chromium ca-certificates
 COPY --from=build-env /app/nuclei /usr/local/bin/
